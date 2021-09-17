@@ -1,1 +1,70 @@
-<p>range works!</p>
+<form [formGroup]="rangeForm" (ngSubmit)="onSubmit()">
+  <div class="d-flex bd-highlight">
+    <button class="p-2 mx-sm-3 flex-fill bd-highlight btn btn-primary" type="button" data-bs-toggle="collapse"
+            data-bs-target="#multiCollapseExample1"
+            aria-expanded="false" aria-controls="multiCollapseExample1" id="infoTextButton">
+      Info Text
+    </button>
+    <button #operatorButton class="p-2 mx-sm-3 flex-fill bd-highlight btn btn-primary" type="button" data-bs-toggle="collapse"
+            data-bs-target="#multiCollapseExample2"
+            aria-expanded="false" aria-controls="multiCollapseExample2" id="operatorProcessButton">
+      Operator Process
+    </button>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col">
+      <div class="collapse multi-collapse" id="multiCollapseExample1">
+        <div class="card card-body">
+
+          <img src="../../../assets/img/range.png" class="img-fluid" alt="range process" width="500" height="150">
+          <br>
+          <p>
+            Params:<br>
+            <b>start</b> – The value of the first integer in the sequence. Default:0<br>
+            <b>count</b> – The number of sequential integers to generate. <br>
+            <b>scheduler</b> – A SchedulerLike to use for scheduling
+          </p>
+          <p>
+            Returns:
+            Observable An Observable of numbers that emits a finite range of
+          </p>
+          <p>
+            See also:
+            timer, index/interval
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="input-group">
+    <label for="start" class="input-group-text">Start</label>
+    <input id="start" formControlName="start" type="number" aria-label="Start" class="form-control">
+    <label for="count" class="input-group-text">Count</label>
+    <input id="count" formControlName="count" type="number" aria-label="Count" class="form-control">
+    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Range Process</button>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col">
+      <div class="collapse multi-collapse" id="multiCollapseExample2">
+        <div class="card card-body">
+          <p><b>Calculation Formula</b>: Range starts with number <b>start</b>, ends with <b>start + count - 1</b>, count interval
+          is <b>1</b> and Range size is equal to <b>count</b>.</p>
+
+          <p *ngIf="rangeList">
+            Range({{rangeList[0]}}, {{rangeList.length}}) : <b>{{rangeList}}</b>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>

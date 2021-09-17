@@ -1,1 +1,63 @@
-<p>of works!</p>
+<div class="d-flex bd-highlight">
+  <button class="p-2 mx-sm-3 flex-fill bd-highlight btn btn-primary" type="button" data-bs-toggle="collapse"
+          data-bs-target="#multiCollapseExample1"
+          aria-expanded="false" aria-controls="multiCollapseExample1" id="infoTextButton">
+    Info Text
+  </button>
+  <button #operatorButton class="p-2 mx-sm-3 flex-fill bd-highlight btn btn-primary" type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#multiCollapseExample2"
+          aria-expanded="false" aria-controls="multiCollapseExample2" id="operatorProcessButton">
+    Operator Process
+  </button>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample1">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let of of ofArray">
+          <div class="d-flex bd-highlight">
+            <div [ngStyle]="{'width': '30%'}" class="text-start p-2 mx-sm-3 flex-fill bd-highlight">{{of.description}}</div>
+            <div [ngStyle]="{'width': '30%'}"  class="text-start p-2 mx-sm-3 flex-fill bd-highlight">{{of.module}}</div>
+            <div [ngStyle]="{'width': '40%'}"  class="text-start p-2 mx-sm-3 flex-fill bd-highlight">{{of.process}}</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<br>
+
+
+<div class="d-flex bd-highlight">
+<div class="p-2 mx-sm-5 flex-fill bd-highlight form-check form-check-inline" *ngFor="let item of ofArray">
+    <input class="form-check-input" type="checkbox" [id]="item.description" [value]="item.description"
+           [checked]="getSelection(item)" (change)="changeHandler(item)">
+    <label class="form-check-label" [for]="item.description">{{item.description}}</label>
+</div>
+</div>
+<br>
+<div class="d-flex bd-highlight">
+  <button class="p-2 mx-sm-3 flex-fill bd-highlight btn btn-outline-secondary" (click)="ofProcess()" type="submit" id="button-addon">Of Process</button>
+</div>
+
+<br>
+<br>
+
+<div class="row">
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample2">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let of of globalOf">
+          <div class="d-flex bd-highlight">
+            <div [ngStyle]="{'width': '30%'}" class="text-start p-2 mx-sm-3 flex-fill bd-highlight">{{of}}</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
