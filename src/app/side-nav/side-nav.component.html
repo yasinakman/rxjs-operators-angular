@@ -1,0 +1,71 @@
+
+
+
+<div class="d-flex bd-highlight">
+  <div class="shadow-lg p-3 mb-5 bg-body rounded p-2 flex-shrink-1 bd-highlight">
+    <div #sideNav id="mySidebar" class="sidebar" (mouseover)="toggleSidebar(sideNav)" (mouseout)="toggleSidebar(sideNav)">
+      <a class="nav-link" aria-current="page" [routerLink]="['range']"
+         [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">
+        Range Operator</a>
+      <a class="nav-link" aria-current="page" [routerLink]="['of']"
+         [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">Of
+        Operator</a>
+      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    </div>
+  </div>
+  <div class="shadow-lg p-3 mb-5 bg-body rounded p-2 w-100 bd-highlight">
+    <div id="main">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+
+<!--
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" [(opened)] = opened>Sidenav
+    <button (click)="sidenav.close()">Close</button></mat-sidenav>
+  <mat-sidenav-content>
+    <button (focus)="sidenav.open()" id="sideNavHoverButton" class="btn btn-info" *ngIf="!opened">Menu</button>
+    Main
+    <button (click)="opened = !opened"> Toggle Opened</button>
+    <button (click)="sidenav.open()">Open</button>
+    <button (click)="sidenav.toggle()">Toggle</button>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+-->
+
+
+<!--
+
+<mat-sidenav-container class="example-container" *ngIf="shouldRun">
+  <mat-sidenav #sidenav [mode]="mode.value">
+    <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p>
+    <p>
+      <mat-radio-group class="example-radio-group" [formControl]="mode">
+        <label>Mode:</label>
+        <mat-radio-button value="over">Over</mat-radio-button>
+        <mat-radio-button value="side">Side</mat-radio-button>
+        <mat-radio-button value="push">Push</mat-radio-button>
+      </mat-radio-group>
+    </p>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p>
+    <p>
+      <mat-radio-group class="example-radio-group" [formControl]="mode">
+        <label>Mode:</label>
+        <mat-radio-button value="over">Over</mat-radio-button>
+        <mat-radio-button value="side">Side</mat-radio-button>
+        <mat-radio-button value="push">Push</mat-radio-button>
+      </mat-radio-group>
+    </p>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+-->
+
+
+<!-- Copyright 2021 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
