@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RangeComponent } from './of.component';
+import { OfComponent } from './of.component';
 
 describe('RangeComponent', () => {
-  let component: RangeComponent;
-  let fixture: ComponentFixture<RangeComponent>;
+  let component: OfComponent;
+  let fixture: ComponentFixture<OfComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RangeComponent ]
+      declarations: [ OfComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RangeComponent);
+    fixture = TestBed.createComponent(OfComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

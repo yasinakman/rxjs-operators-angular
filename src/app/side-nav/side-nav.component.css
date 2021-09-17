@@ -68,7 +68,7 @@ main .sidebar {
 
 #main {
   padding: 16px;
-  margin-left: 85px;
+  margin-left: 15px;
   transition: margin-left 0.5s;
 }
 
