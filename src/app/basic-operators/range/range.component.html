@@ -5,7 +5,8 @@
             aria-expanded="false" aria-controls="multiCollapseExample1" id="infoTextButton">
       Info Text
     </button>
-    <button #operatorButton class="p-2 mx-sm-3 flex-fill bd-highlight btn btn-primary" type="button" data-bs-toggle="collapse"
+    <button #operatorButton class="p-2 mx-sm-3 flex-fill bd-highlight btn btn-primary" type="button"
+            data-bs-toggle="collapse"
             data-bs-target="#multiCollapseExample2"
             aria-expanded="false" aria-controls="multiCollapseExample2" id="operatorProcessButton">
       Operator Process
@@ -15,7 +16,7 @@
   <br>
 
   <div class="row">
-    <div class="col">
+    <div class="col-sm-12">
       <div class="collapse multi-collapse" id="multiCollapseExample1">
         <div class="card card-body">
 
@@ -53,11 +54,11 @@
   <br>
 
   <div class="row">
-    <div class="col">
+    <div class="col-sm-12">
       <div class="collapse multi-collapse" id="multiCollapseExample2">
         <div class="card card-body">
-          <p><b>Calculation Formula</b>: Range starts with number <b>start</b>, ends with <b>start + count - 1</b>, count interval
-          is <b>1</b> and Range size is equal to <b>count</b>.</p>
+          <p><b>Calculation Formula</b>: Range starts with number <b>start</b>, ends with <b>start + count - 1</b>,
+            count interval is <b>1</b> and Range size is equal to <b>count</b>.</p>
 
           <p *ngIf="rangeList">
             Range({{rangeList[0]}}, {{rangeList.length}}) : <b>{{rangeList}}</b>

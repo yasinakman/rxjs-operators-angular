@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OfComponent } from './of.component';
+import { FromComponent } from './from.component';
 
-describe('OfComponent', () => {
-  let component: OfComponent;
-  let fixture: ComponentFixture<OfComponent>;
+describe('FromComponent', () => {
+  let component: FromComponent;
+  let fixture: ComponentFixture<FromComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OfComponent ]
+      declarations: [ FromComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OfComponent);
+    fixture = TestBed.createComponent(FromComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

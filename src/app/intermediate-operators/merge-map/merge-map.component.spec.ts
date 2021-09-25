@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OfComponent } from './of.component';
+import { MergeMapComponent } from './merge-map.component';
 
-describe('OfComponent', () => {
-  let component: OfComponent;
-  let fixture: ComponentFixture<OfComponent>;
+describe('MergeMapComponent', () => {
+  let component: MergeMapComponent;
+  let fixture: ComponentFixture<MergeMapComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OfComponent ]
+      declarations: [ MergeMapComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OfComponent);
+    fixture = TestBed.createComponent(MergeMapComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

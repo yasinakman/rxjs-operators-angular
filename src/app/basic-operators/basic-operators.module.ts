@@ -1,8 +1,5 @@
 import {NgModule} from '@angular/core';
-import {BasicOperatorsRouting} from "./basic-operators.routing";/*
-import {OperatorsListComponent} from "./operators-list/operators-list.component";
-import {OperatorsEditComponent} from "./operators-edit/operators-edit.component";
-import {OperatorsDetailComponent} from "./operators-detail/operators-detail.component";*/
+import {BasicOperatorsRouting} from "./basic-operators.routing";
 import {BasicOperatorsComponent} from "./basic-operators.component";
 import {MatTabsModule} from "@angular/material/tabs";
 import { RangeComponent } from './range/range.component';
@@ -12,17 +9,18 @@ import {BasicOperatorsNavBarComponent} from "../basic-operators-nav-bar/basic-op
 import {OfComponent} from "./of/of.component";
 import {SideNavComponent} from "../side-nav/side-nav.component";
 import {ReactiveFormsModule} from "@angular/forms";
+import {FromComponent} from "./from/from.component";
+import {StartWithComponent} from "./start-with/start-with.component";
 
 @NgModule({
   declarations: [
     BasicOperatorsComponent,
     RangeComponent,
     OfComponent,
+    FromComponent,
+    StartWithComponent,
     SideNavComponent,
-    BasicOperatorsNavBarComponent/*,
-    OperatorsListComponent,
-    OperatorsEditComponent,
-    OperatorsDetailComponent*/
+    BasicOperatorsNavBarComponent
   ],
     imports: [
         BasicOperatorsRouting,

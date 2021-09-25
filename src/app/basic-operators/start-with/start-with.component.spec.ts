@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OfComponent } from './of.component';
+import { StartWithComponent } from './start-with.component';
 
-describe('OfComponent', () => {
-  let component: OfComponent;
-  let fixture: ComponentFixture<OfComponent>;
+describe('StartWithComponent', () => {
+  let component: StartWithComponent;
+  let fixture: ComponentFixture<StartWithComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OfComponent ]
+      declarations: [ StartWithComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OfComponent);
+    fixture = TestBed.createComponent(StartWithComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

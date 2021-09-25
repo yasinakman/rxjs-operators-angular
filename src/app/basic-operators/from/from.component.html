@@ -1,0 +1,71 @@
+<div class="d-flex bd-highlight">
+  <button class="p-2 mx-sm-3 flex-fill bd-highlight btn btn-primary" type="button" data-bs-toggle="collapse"
+          data-bs-target="#multiCollapseExample1"
+          aria-expanded="false" aria-controls="multiCollapseExample1" id="infoTextButton">
+    Info Text
+  </button>
+  <button class="p-2 mx-sm-3 flex-fill bd-highlight btn btn-primary" type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#multiCollapseExample2"
+          aria-expanded="false" aria-controls="multiCollapseExample2" id="operatorProcessButton">
+    Operator Process
+  </button>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="collapse multi-collapse" id="multiCollapseExample1">
+      <div class="card card-body">
+        <p>Animals:</p>
+        <br>
+        <p style="font-size: 50px">{{animalList}}</p>
+        <br><br><br>
+        <p>const typeIndex = Object.values(AnimalTypes).indexOf(type);</p><br>
+        <p>
+          from(arr[typeIndex].animals.map(x => typeIndex != 0 ? 'Hello, I can ' + Object.values(arr)[typeIndex].type + ' ' + x : "Animal: " + x))
+          .subscribe(value => this.fromList.push(value));
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="input-group">
+  <div class="dropdown p-2 mx-sm-2">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+            aria-expanded="false">
+      Choose Any Animal Type
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="cursor: pointer">
+      <li><a class="dropdown-item" (click)="onSubmit('animals')">animals</a></li>
+      <li><a class="dropdown-item" (click)="onSubmit('fly')">flying animals</a></li>
+      <li><a class="dropdown-item" (click)="onSubmit('nonFly')">not flying animals</a></li>
+      <li><a class="dropdown-item" (click)="onSubmit('run')">runnable animals</a></li>
+      <li><a class="dropdown-item" (click)="onSubmit('nonRun')">not runnable animals</a></li>
+      <li><a class="dropdown-item" (click)="onSubmit('crawl')">crawling animals</a></li>
+      <li><a class="dropdown-item" (click)="onSubmit('nonCrawl')">not crawling animals</a></li>
+      <li><a class="dropdown-item" (click)="onSubmit('swim')">swimming animals</a></li>
+      <li><a class="dropdown-item" (click)="onSubmit('nonSwim')">not swimming animals</a></li>
+    </ul>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="collapse multi-collapse" id="multiCollapseExample2">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let from of fromList">
+            <div [ngStyle]="{'width': '30%'}" class="text-start p-2 mx-sm-3 flex-fill bd-highlight">
+              <p>{{from.text}}</p><br><p style="font-size: 50px">{{from.animal}}</p></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

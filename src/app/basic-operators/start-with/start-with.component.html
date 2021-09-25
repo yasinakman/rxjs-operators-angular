@@ -1,0 +1,57 @@
+<div class="d-flex bd-highlight">
+  <button class="p-2 mx-sm-3 flex-fill bd-highlight btn btn-primary" type="button" data-bs-toggle="collapse"
+          data-bs-target="#multiCollapseExample1"
+          aria-expanded="false" aria-controls="multiCollapseExample1" id="infoTextButton">
+    Info Text
+  </button>
+  <button class="p-2 mx-sm-3 flex-fill bd-highlight btn btn-primary" type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#multiCollapseExample2"
+          aria-expanded="false" aria-controls="multiCollapseExample2" id="operatorProcessButton">
+    Operator Process
+  </button>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="collapse multi-collapse" id="multiCollapseExample1">
+      <div class="card card-body">
+        this.numberList.filter(value => value.number.startsWith(event.value)).map(value => this.filterList.push(value))
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="d-flex bd-highlight">
+  <label class="text-start p-2 mx-sm-3 bd-highlight" for="checkbox">Search Area Code</label>
+  <input style="height: 36px" class="text-start p-2 mx-sm-3 bd-highlight" type="checkbox" id="checkbox" value="Area Code"
+         [checked]="checked" (change)="checked = checked!">
+</div>
+<br>
+<div class="input-group">
+  <label for="country-or-contacts" class="input-group-text">
+    Country Or Contact Search</label>
+  <input id="country-or-contacts" type="text" aria-label="area-code" class="form-control"
+         (change)="getCountryOrContacts($event)" (keydown.enter)="getCountryOrContacts($event)">
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="collapse multi-collapse" id="multiCollapseExample2">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let filter of filterList">
+          <div class="d-flex bd-highlight">
+            <div [ngStyle]="{'width': '30%'}" class="text-start p-2 mx-sm-3 flex-fill bd-highlight">
+              {{filter.name}}: {{filter.number}}</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

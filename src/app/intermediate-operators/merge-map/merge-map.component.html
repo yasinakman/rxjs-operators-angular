@@ -1,0 +1,57 @@
+<div class="d-flex bd-highlight">
+  <button class="p-2 mx-sm-3 flex-fill bd-highlight btn btn-primary" type="button" data-bs-toggle="collapse"
+          data-bs-target="#multiCollapseExample1"
+          aria-expanded="false" aria-controls="multiCollapseExample1" id="infoTextButton">
+    Info Text
+  </button>
+  <button class="p-2 mx-sm-3 flex-fill bd-highlight btn btn-primary" type="button"
+          data-bs-toggle="collapse"
+          data-bs-target=".multi-collapse"
+          aria-expanded="false" aria-controls="multiCollapseExample2" id="operatorProcessButton">
+    Operator Process
+  </button>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="collapse" id="multiCollapseExample1">
+      <div class="card card-body">
+        <textarea id="text-area" style="height: 300px" [disabled]="true">{{getDescription()}}</textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="dropdown p-2 mx-sm-2" style="cursor:pointer;">
+  <button style="width: 200px" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
+          data-bs-toggle="dropdown" aria-expanded="false">
+    <span id="usage">select an option</span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" (click)="onClick(0)">Separate Observables</a></li>
+    <li><a class="dropdown-item" (click)="onClick(1)">MergeMap Operator</a></li>
+    <li><a class="dropdown-item" (click)="onClick(2)">ReactiveForm</a></li>
+  </ul>
+</div>
+<div class="input-group dropdown p-2 mx-sm-2" [formGroup]="mergeMapForm">
+  <label for="first" class="input-group-text">First</label>
+  <input id="first" formControlName="first" type="text" aria-label="First" class="form-control">
+  <label for="last" class="input-group-text">Last</label>
+  <input id="last" formControlName="last" type="text" aria-label="Last" class="form-control">
+  <button class="p-2 flex-shrink-1 btn-outline-warning" type="button" id="button-killer">
+    Reset
+  </button>
+</div>
+<br>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="collapse multi-collapse" id="multiCollapseExample2">
+      <span id="output-label"></span>
+    </div>
+  </div>
+</div>
