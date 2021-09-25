@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OfComponent } from './of.component';
+import { SwitchMapComponent } from './switch-map.component';
 
-describe('OfComponent', () => {
-  let component: OfComponent;
-  let fixture: ComponentFixture<OfComponent>;
+describe('SwitchMapComponent', () => {
+  let component: SwitchMapComponent;
+  let fixture: ComponentFixture<SwitchMapComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OfComponent ]
+      declarations: [ SwitchMapComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OfComponent);
+    fixture = TestBed.createComponent(SwitchMapComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

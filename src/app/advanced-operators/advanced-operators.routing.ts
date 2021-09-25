@@ -16,7 +16,7 @@ const routes: Routes = [
       {path: ':id/edit', component: OperatorsEditComponent}*/
     ]
   },
-  {path: '**', redirectTo: 'template-list'},
+  {path: '**', redirectTo: '/not-found'},
 ];
 
 @NgModule({

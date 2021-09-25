@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {Observable, of, Subscription} from "rxjs";
+import {of, Subscription} from "rxjs";
 import {OfModel} from "./_model/of.model";
 import {map} from "rxjs/operators";
 
@@ -71,24 +71,25 @@ export class OfComponent implements OnInit, OnDestroy {
 
     openAnswer();
     this.globalOf = [];
-    this.sub.push(of(...this.selection)
-      .pipe(map((x: OfModel) => {
-        let module = x.module;
-        if (typeof module == 'number') {
-          return {v: module * module, d: x.description, i: 0};
-        } else if(module instanceof Array) {
-          return {v: [...module], d: x.description, i: 1};
-        } else if (typeof module == 'string') {
-          return {v:  module.repeat(5), d: x.description, i: 2};
-        } else if (typeof module === typeof {name: 'Yasin'}) {
-          return {v:  module.name, d: x.description, i:  3};
-        } else if (typeof module == 'function') {
-          return {v:  module(), d: x.description, i:  4};
-        } else return null;
-      }))
-      .subscribe((x) => {
-        this.globalOf.push(x?.d + ' -> ' + x?.v);
-        console.log(this.globalOf);
-      }));
+    this.sub.push(
+      of(...this.selection)
+        .pipe(map((x: OfModel) => {
+          let module = x.module;
+          if (typeof module == 'number') {
+            return {v: module * module, d: x.description, i: 0};
+          } else if (module instanceof Array) {
+            return {v: [...module], d: x.description, i: 1};
+          } else if (typeof module == 'string') {
+            return {v: module.repeat(5), d: x.description, i: 2};
+          } else if (typeof module === typeof {name: 'Yasin'}) {
+            return {v: module.name, d: x.description, i: 3};
+          } else if (typeof module == 'function') {
+            return {v: module(), d: x.description, i: 4};
+          } else return null;
+        }))
+        .subscribe((x) => {
+          this.globalOf.push(x?.d + ' -> ' + x?.v);
+          console.log(this.globalOf);
+        }));
   }
 }

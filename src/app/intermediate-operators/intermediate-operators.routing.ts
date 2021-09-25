@@ -1,22 +1,19 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {IntermediateOperatorsComponent} from "./intermediate-operators.component";/*
-import {OperatorsEditComponent} from "./operators-edit/operators-edit.component";
-import {OperatorsDetailComponent} from "./operators-detail/operators-detail.component";*/
+import {IntermediateOperatorsComponent} from "./intermediate-operators.component";
+import {SwitchMapComponent} from "./swtich-map/switch-map.component";
+import {MergeMapComponent} from "./merge-map/merge-map.component";
 
 const routes: Routes = [
   {
     path: '',
-    component: IntermediateOperatorsComponent,/*
-    resolve: [RecipesResolverService],*/
-    children: [/*
-      {path: '', component: OperatorsStartComponent},
-      {path: 'new', component: OperatorsEditComponent},
-      {path: ':id', component: OperatorsDetailComponent},
-      {path: ':id/edit', component: OperatorsEditComponent}*/
+    component: IntermediateOperatorsComponent,
+    children: [
+      {path: 'switch-map', component: SwitchMapComponent},
+      {path: 'merge-map', component: MergeMapComponent}
     ]
   },
-  {path: '**', redirectTo: 'template-list'},
+  {path: '**', redirectTo: '/not-found'},
 ];
 
 @NgModule({

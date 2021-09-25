@@ -1,0 +1,83 @@
+<div class="d-flex bd-highlight">
+  <button class="p-2 mx-sm-3 flex-fill bd-highlight btn btn-primary" type="button" data-bs-toggle="collapse"
+          data-bs-target="#multiCollapseExample1"
+          aria-expanded="false" aria-controls="multiCollapseExample1" id="infoTextButton">
+    Info Text
+  </button>
+  <button class="p-2 mx-sm-3 flex-fill bd-highlight btn btn-primary" type="button"
+          data-bs-toggle="collapse"
+          data-bs-target=".multi-collapse"
+          aria-expanded="false" aria-controls="multiCollapseExample2" id="operatorProcessButton">
+    Operator Process
+  </button>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="collapse" id="multiCollapseExample1">
+      <div class="card card-body">
+        <p>{{'let buttonObs = fromEvent(switchMapTimer, "click");'}}</p>
+        <p>{{'let numberObs = interval(1000);'}}</p>
+        <br>
+        <p>{{'//the older subscriptions will be killed automatically.'}}</p>
+        <br>
+        <p>{{'this.buttonSub = buttonObs.pipe(switchMap(event =>'}}</p>
+        <p>{{'  numberObs.pipe(takeUntil(this.notifier));'}}</p>
+        <p>{{')).subscribe(number =>'}}</p>
+        <p>{{'    this.timerList.unshift(number);'}}</p>
+        <p>{{'   );'}}</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="input-group"><!--
+  <label for="start" class="input-group-text">Start</label>
+  <input id="start" type="number" aria-label="Start" class="form-control"
+         [(ngModel)]="start">-->
+  <button class="flex-fill btn btn-outline-secondary" type="submit" id="button-timer" (click)="onSubmit()">
+    Timer Process
+  </button>
+  <button class="flex-fill btn btn-success" type="submit" id="button-timer-switch-map" (click)="onSubmit()">
+    SwitchMap Process
+  </button>
+  <button class="flex-fill btn btn-outline-warning" type="button" id="button-killer">
+    kill Observables
+  </button>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="collapse multi-collapse" id="multiCollapseExample2">
+      <ul class="d-flex list-group">
+        <li class="p-2 mx-sm-3 flex-fill bd-highlight list-group-item" *ngFor="let time of timerList">
+          <div [ngStyle]="{'width': '30%'}" class="text-start p-2 mx-sm-3 flex-fill bd-highlight">
+            <p style="font-size: 50px; margin: auto;">
+              {{time}}
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="collapse multi-collapse" id="multiCollapseExample3">
+      <ul class="d-flex list-group">
+        <li class="p-2 mx-sm-3 flex-fill bd-highlight list-group-item" *ngFor="let time of timerListSwitch">
+          <div [ngStyle]="{'width': '30%'}" class="text-start p-2 mx-sm-3 flex-fill bd-highlight">
+            <p style="font-size: 50px; color: green; margin: auto">
+              {{time}}
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
