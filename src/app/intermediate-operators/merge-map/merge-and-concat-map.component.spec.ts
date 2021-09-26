@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MergeMapComponent } from './merge-map.component';
+import { MergeAndConcatMapComponent } from './merge-and-concat-map.component';
 
-describe('MergeMapComponent', () => {
-  let component: MergeMapComponent;
-  let fixture: ComponentFixture<MergeMapComponent>;
+describe('MergeAndConcatMapComponent', () => {
+  let component: MergeAndConcatMapComponent;
+  let fixture: ComponentFixture<MergeAndConcatMapComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MergeMapComponent ]
+      declarations: [ MergeAndConcatMapComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MergeMapComponent);
+    fixture = TestBed.createComponent(MergeAndConcatMapComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

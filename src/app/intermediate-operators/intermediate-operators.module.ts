@@ -5,12 +5,12 @@ import {IntermediateOperatorsNavBarComponent} from "../intermediate-operators-na
 import {SwitchMapComponent} from "./swtich-map/switch-map.component";
 import {CommonModule} from "@angular/common";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {MergeMapComponent} from "./merge-map/merge-map.component";
+import {MergeAndConcatMapComponent} from "./merge-map/merge-and-concat-map.component";
 
 @NgModule({
   declarations: [
     SwitchMapComponent,
-    MergeMapComponent,
+    MergeAndConcatMapComponent,
     IntermediateOperatorsComponent,
     IntermediateOperatorsNavBarComponent
   ],

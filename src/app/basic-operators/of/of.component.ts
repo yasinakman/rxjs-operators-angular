@@ -49,10 +49,6 @@ export class OfComponent implements OnInit, OnDestroy {
     }
   }
 
-  save() {
-    console.log(this.selection);
-  }
-
   ngOnDestroy() {
     this.sub.forEach(
       subscription => subscription.unsubscribe()

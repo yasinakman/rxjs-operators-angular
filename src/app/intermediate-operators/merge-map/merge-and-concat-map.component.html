@@ -1,0 +1,130 @@
+<div class="d-flex bd-highlight">
+  <button class="p-2 mx-sm-3 flex-fill bd-highlight btn btn-primary" type="button" data-bs-toggle="collapse"
+          data-bs-target="#multiCollapseExample1"
+          aria-expanded="false" aria-controls="multiCollapseExample1" id="infoTextButton">
+    Info Text
+  </button>
+  <button class="p-2 mx-sm-3 flex-fill bd-highlight btn btn-primary" type="button"
+          data-bs-toggle="collapse"
+          data-bs-target=".multi-collapse"
+          aria-expanded="false" aria-controls="multiCollapseExample2" id="operatorProcessButton">
+    Operator Process
+  </button>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="collapse" id="multiCollapseExample1">
+      <div class="card card-body">
+        <textarea id="text-area" style="height: 270px" [disabled]="true">{{getDescription()}}</textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="dropdown p-2 mx-sm-2" style="cursor:pointer;">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
+          data-bs-toggle="dropdown" aria-expanded="false">
+    <span id="usage">select an option</span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" (click)="onClick(0)">Separate Observables</a></li>
+    <li><a class="dropdown-item" (click)="onClick(1)">MergeMap - ConcatMap Operator</a></li>
+    <li><a class="dropdown-item" (click)="onClick(2)">ReactiveForm</a></li>
+  </ul>
+</div>
+<div class="input-group dropdown p-2 mx-sm-2" [formGroup]="mergeMapForm">
+  <label for="first" class="input-group-text">First</label>
+  <input id="first" formControlName="first" type="text" aria-label="First" class="form-control">
+  <label for="last" class="input-group-text">Last</label>
+  <input id="last" formControlName="last" type="text" aria-label="Last" class="form-control">
+  <button class="p-2 flex-shrink-1 btn-outline-warning" type="button" id="button-killer" (click)="onKill()">
+    Reset
+  </button>
+</div>
+<br>
+
+<br>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="collapse multi-collapse" id="multiCollapseExample2">
+      <div class="d-flex list-group-item">
+        <span style="font-size: 50px; margin: auto;" id="output-label"
+              class="p-2 mx-sm-3 flex-fill bd-highlight"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="accordion accordion-flush" id="accordionFlushExample">
+  <div class="accordion-item" *ngIf="action === 1">
+    <h2 class="accordion-header" id="flush-headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+        MergeMap - ConcatMap Difference
+      </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+         data-bs-parent="#accordionFlushExample">
+
+      <div class="input-group p-2 mx-sm-2">
+        <p><code>concatMap</code> operator does not start the next one before the active subscription process ends.</p>
+        <br>
+        <p><code>mergeMap</code> quickly prints all subscriptions one after the other,
+          regardless of the order in the data source.</p>
+      </div>
+      <br>
+      <div class="accordion-body input-group dropdown p-2 mx-sm-2">
+        <label for="one" class="input-group-text">First</label>
+        <input id="one" type="number" aria-label="One" class="form-control">
+        <label for="second" class="input-group-text">Second</label>
+        <input id="second" type="number" aria-label="Second" class="form-control">
+        <label for="third" class="input-group-text">Third</label>
+        <input id="third" type="number" aria-label="Third" class="form-control">
+        <button class="p-2 flex-shrink-1 btn-outline-success" type="button" id="button-merge"
+                (click)="mergeOrConcatButton(1)">
+          MergeMap
+        </button>
+        <button class="p-2 flex-shrink-1 btn-outline-success" type="button" id="button-concat"
+                (click)="mergeOrConcatButton(0)">
+          ConcatMap
+        </button>
+      </div>
+      <div class="accordion-body">
+        <div class="p-2 mx-sm-3 flex-fill bd-highlight">
+          <ul class="d-flex list-group">
+            <li class="p-2 mx-sm-3 flex-fill bd-highlight list-group-item"
+                *ngFor="let mergeOrConcat of mergeOrConcatList">
+              <div class="text-start p-2 mx-sm-3 flex-fill bd-highlight">
+                <p style="font-size: 20px;">
+                  {{mergeOrConcat}}
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+         data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+          Accordion Item #2
+        </button>
+      </h2>
+      <div id="flush-collapseTwo" class="accordion-collapse collapse"
+      aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">Placeholder content for this accordion, which is intended to
+         demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body.
+          Let's imagine this being filled with some actual content.</div>
+      </div>
+    </div>-->
+</div>
