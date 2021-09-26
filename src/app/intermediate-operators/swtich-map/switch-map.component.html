@@ -18,6 +18,9 @@
   <div class="col-sm-12">
     <div class="collapse" id="multiCollapseExample1">
       <div class="card card-body">
+        <p>mergeMap ve concatMap’den ayıran özellik; bir veri switchMap ile yayıldığında bir
+          önceki yayılma (emission) iptal edilir ve yeni sonuca abone (subscribed) olunur.</p>
+        <br>
         <p>{{'let buttonObs = fromEvent(switchMapTimer, "click");'}}</p>
         <p>{{'let numberObs = interval(1000);'}}</p>
         <br>
@@ -46,7 +49,7 @@
   <button class="flex-fill btn btn-success" type="submit" id="button-timer-switch-map" (click)="onSubmit()">
     SwitchMap Process
   </button>
-  <button class="flex-fill btn btn-outline-warning" type="button" id="button-killer">
+  <button class="flex-fill btn btn-outline-warning" type="button" id="button-killer" (click)="onKill()">
     kill Observables
   </button>
 </div>
@@ -72,7 +75,7 @@
       <ul class="d-flex list-group">
         <li class="p-2 mx-sm-3 flex-fill bd-highlight list-group-item" *ngFor="let time of timerListSwitch">
           <div [ngStyle]="{'width': '30%'}" class="text-start p-2 mx-sm-3 flex-fill bd-highlight">
-            <p style="font-size: 50px; color: green; margin: auto">
+            <p style="font-size: 50px; color: green; margin: auto;">
               {{time}}
             </p>
           </div>

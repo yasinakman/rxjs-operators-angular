@@ -10,7 +10,6 @@ import {switchMap, takeUntil} from 'rxjs/operators';
 export class SwitchMapComponent implements OnInit, OnDestroy {
   sub: Subscription[] = [];
   buttonSub!: Subscription;
-  killerSub!: Subscription;
 
   timerList: number[] = [];
   timerListSwitch: number[] = [];
@@ -62,26 +61,15 @@ export class SwitchMapComponent implements OnInit, OnDestroy {
           extractedSwitch.call(this);
         });
     }
-
-    let buttonKiller = document.getElementById('button-killer');
-    if (buttonKiller) {
-      let killerObs = fromEvent(buttonKiller, 'click');
-      this.killerSub = killerObs.subscribe(killerObs => {
-        this.notifier.next()
-        this.notifier.complete()
-        this.notifier = new Subject();
-        this.sub.forEach(sub => sub.unsubscribe());
-        this.timerList = [];
-        this.timerListSwitch = [];
-      })
-    }
   }
 
-  ngOnDestroy() {
-    this.sub.forEach(
-      subscription => subscription.unsubscribe()
-    );
-    this.buttonSub.unsubscribe();
+  onKill() {
+    this.notifier.next()
+    this.notifier.complete()
+    this.notifier = new Subject();
+    this.sub.forEach(sub => sub.unsubscribe());
+    this.timerList = [];
+    this.timerListSwitch = [];
   }
 
   onSubmit() {
@@ -91,5 +79,12 @@ export class SwitchMapComponent implements OnInit, OnDestroy {
     if (ariaExp == 'false') {
       elementById!!.click();
     }
+  }
+
+  ngOnDestroy() {
+    this.sub.forEach(
+      subscription => subscription.unsubscribe()
+    );
+    this.buttonSub.unsubscribe();
   }
 }

@@ -1,18 +1,18 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {fromEvent, Subject, Subscription} from "rxjs";
+import {fromEvent, of, Subscription} from "rxjs";
 import {FormControl, FormGroup} from "@angular/forms";
-import {map, mergeMap} from 'rxjs/operators';
+import {concatMap, delay, map, mergeMap} from 'rxjs/operators';
 
 @Component({
-  selector: 'app-merge-map',
-  templateUrl: './merge-map.component.html',
-  styleUrls: ['./merge-map.component.css']
+  selector: 'app-merge-concat-map',
+  templateUrl: './merge-and-concat-map.component.html',
+  styleUrls: ['./merge-and-concat-map.component.css']
 })
-export class MergeMapComponent implements OnInit, OnDestroy {
+export class MergeAndConcatMapComponent implements OnInit, OnDestroy {
   sub: Subscription[] = [];
-  killerSub!: Subscription;
   mergeMapForm!: FormGroup;
   action = -1;
+  mergeOrConcatList: string[] = [];
 
   constructor() {
   }
@@ -72,19 +72,16 @@ export class MergeMapComponent implements OnInit, OnDestroy {
           (ev.currentTarget as HTMLInputElement).textContent;
       }
     });
+  }
 
-    let buttonKiller = document.getElementById('button-killer');
-    if (buttonKiller) {
-      let killerObs = fromEvent(buttonKiller, 'click');
-      this.killerSub = killerObs.subscribe(killerObs => {
-        this.sub.forEach(sub => sub.unsubscribe());
-        (document.getElementById("usage") as HTMLInputElement)
-          .textContent = 'select an option';
-        (document.getElementById('output-label') as HTMLSpanElement)
-          .textContent = '';
-        this.action = -1;
-      })
-    }
+  onKill() {
+    this.sub.forEach(sub => sub.unsubscribe());
+    (document.getElementById("usage") as HTMLInputElement)
+      .textContent = 'select an option';
+    (document.getElementById('output-label') as HTMLSpanElement)
+      .textContent = '';
+    this.action = -1;
+    this.mergeOrConcatList = [];
   }
 
   onClick(action: number) {
@@ -99,13 +96,13 @@ export class MergeMapComponent implements OnInit, OnDestroy {
     if (action === 0) {
       this.sub.push(firstObservable.subscribe(first => {
           this.onSubmit();
-          spanLabel.textContent = (first.target as HTMLInputElement).value
+          spanLabel.textContent = (first.target as HTMLInputElement).value;
         }
       ));
 
       this.sub.push(lastObservable.subscribe(last => {
           this.onSubmit();
-          spanLabel.textContent = (last.target as HTMLInputElement).value
+          spanLabel.textContent = (last.target as HTMLInputElement).value;
         }
       ));
     } else if (action === 1) {
@@ -117,7 +114,7 @@ export class MergeMapComponent implements OnInit, OnDestroy {
         }
       )).subscribe(spanValue => {
         this.onSubmit();
-        return spanLabel.textContent = spanValue
+        spanLabel.textContent = spanValue;
       }));
     } else if (action === 2) {
       this.sub.push(this.mergeMapForm.valueChanges.subscribe(value => {
@@ -131,7 +128,6 @@ export class MergeMapComponent implements OnInit, OnDestroy {
         }
       }));
     }
-
   }
 
   ngOnDestroy() {
@@ -145,6 +141,34 @@ export class MergeMapComponent implements OnInit, OnDestroy {
     let ariaExp = elementById!!.getAttribute('aria-expanded');
     if (ariaExp == 'false') {
       elementById!!.click();
+    }
+  }
+
+  mergeOrConcatButton(action: number) {
+    let first = document.getElementById('one') as HTMLInputElement;
+    let second = document.getElementById('second') as HTMLInputElement;
+    let third = document.getElementById('third') as HTMLInputElement;
+
+    if (action === 0) {
+      this.mergeOrConcatList = [];
+      of({label: 'First', delay: first.valueAsNumber}, {label: 'Second', delay: second.valueAsNumber},
+        {label: 'Third', delay: third.valueAsNumber})
+        .pipe(concatMap((val) =>
+          of(val.label + ' process delayed by: ' + val.delay + 'ms').pipe(delay(val.delay))
+        ))
+        .subscribe((result) => {
+          this.mergeOrConcatList.push('With concatMap: ' + result)
+        });
+    } else if (action === 1) {
+      this.mergeOrConcatList = [];
+      of({label: 'First', delay: first.valueAsNumber}, {label: 'Second', delay: second.valueAsNumber},
+        {label: 'Third', delay: third.valueAsNumber})
+        .pipe(mergeMap((val) =>
+          of(val.label + ' process delayed by: ' + val.delay + 'ms').pipe(delay(val.delay))
+        ))
+        .subscribe((result) => {
+          this.mergeOrConcatList.push('With mergeMap: ' + result)
+        });
     }
   }
 }
