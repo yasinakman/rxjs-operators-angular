@@ -14,6 +14,7 @@ import {MatRadioModule} from "@angular/material/radio";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {TabBasicComponent} from "./_tab-basic/tab-basic.component";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {TabBasicComponent} from "./_tab-basic/tab-basic.component";
     MatSidenavModule,
     MatRadioModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

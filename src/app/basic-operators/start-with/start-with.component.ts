@@ -14,7 +14,7 @@ enum AnimalTypes {
 export class StartWithComponent implements OnInit, OnDestroy {
   sub: Subscription[] = [];
   countryList: { name: string, number: string }[] =
-    [{name: "Turkey", number: "+90"}, {name: "Gerany", number: "+49"}];
+    [{name: "Turkey", number: "+90"}, {name: "Germany", number: "+49"}];
   numberList: { name: string, number: string }[] =
     [{name: "Yasin", number: "+905392832234"}, {name: "Talha", number: "+905391325468"},
       {name: "Akman", number: "+4917664612175"}, {name: "Yasin", number: "+491639723428"}];

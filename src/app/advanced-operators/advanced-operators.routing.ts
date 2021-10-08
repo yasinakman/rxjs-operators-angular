@@ -1,6 +1,8 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {AdvancedOperatorsComponent} from "./advanced-operators.component";/*
+import {AdvancedOperatorsComponent} from "./advanced-operators.component";
+import {RetryWhenComponent} from "./retry-when/retry-when.component";
+/*
 import {OperatorsEditComponent} from "./operators-edit/operators-edit.component";
 import {OperatorsDetailComponent} from "./operators-detail/operators-detail.component";*/
 
@@ -9,8 +11,8 @@ const routes: Routes = [
     path: '',
     component: AdvancedOperatorsComponent,/*
     resolve: [RecipesResolverService],*/
-    children: [/*
-      {path: '', component: OperatorsStartComponent},
+    children: [
+      {path: 'retry-when', component: RetryWhenComponent}/*,
       {path: 'new', component: OperatorsEditComponent},
       {path: ':id', component: OperatorsDetailComponent},
       {path: ':id/edit', component: OperatorsEditComponent}*/

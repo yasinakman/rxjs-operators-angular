@@ -5,7 +5,7 @@ import {MatTabsModule} from "@angular/material/tabs";
 import { RangeComponent } from './range/range.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {CommonModule} from "@angular/common";
-import {BasicOperatorsNavBarComponent} from "../basic-operators-nav-bar/basic-operators-nav-bar.component";
+import {BasicOperatorsNavBarComponent} from "./basic-operators-nav-bar/basic-operators-nav-bar.component";
 import {OfComponent} from "./of/of.component";
 import {SideNavComponent} from "../side-nav/side-nav.component";
 import {ReactiveFormsModule} from "@angular/forms";

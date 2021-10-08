@@ -1,0 +1,50 @@
+<form>
+  <div class="d-flex bd-highlight">
+    <button class="p-2 mx-sm-3 flex-fill bd-highlight btn btn-primary" type="button" data-bs-toggle="collapse"
+            data-bs-target="#multiCollapseExample1"
+            aria-expanded="false" aria-controls="multiCollapseExample1" id="infoTextButton">
+      Info Text
+    </button>
+    <button #operatorButton class="p-2 mx-sm-3 flex-fill bd-highlight btn btn-primary" type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#multiCollapseExample2"
+            aria-expanded="false" aria-controls="multiCollapseExample2" id="operatorProcessButton">
+      Operator Process
+    </button>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="collapse" id="multiCollapseExample1">
+        <div class="card card-body">
+          <textarea id="text-area" style="height: 270px" [disabled]="true">{{getDescription()}}</textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+
+  <div class="input-group">
+    <label for="username" class="input-group-text">Username</label>
+    <input #username id="username" type="text" aria-label="Username" class="form-control">
+    <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="onSubmit(username.value)">RetryWhen Process</button>
+    <button class="btn btn-outline-warning" type="button" id="button-reset" (click)="onReset()">Clear</button>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="collapse multi-collapse" id="multiCollapseExample2" #result><!--
+        <div class="card card-body">
+          <p>test</p>
+        </div>-->
+      </div>
+    </div>
+  </div>
+
+</form>
